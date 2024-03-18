@@ -16,9 +16,13 @@ system.cpu = X86TimingSimpleCPU()
 
 #Create a memory object
 system.memobj = SimpleMemobj()
+system.system_port = system.membus.slave
+
+system.mem_ctrl = DDR3_1600_8x8()
+system.mem_ctrl.range = system.mem_ranges[0]
+system.mem_ctrl.port = system.membus.master
 
 # Setup the caches
-
 # L1 caches
 system.cpu.icache = L1ICache() 
 system.cpu.dcache = L1DCache() 
