@@ -3,6 +3,7 @@ rom m5.objects import BaseCache
 class L1Cache(BaseCache):
         assoc = 2
         hit_latency = 2
+        access_latency = 1
         response_latency = 2
         mshrs = 4
         tgts_per_mshr = 20
@@ -29,6 +30,7 @@ class L2Cache(BaseCache):
         size = '256kB'
         assoc = 8
         hit_latency = 20
+        access_latency = 4
         response_latency = 20
         mshrs = 20
         tgts_per_mshr = 12
