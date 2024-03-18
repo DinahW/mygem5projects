@@ -1,4 +1,4 @@
-rom m5.params import *
+from m5.params import *
 from m5.proxy import *
 from MemObject import MemObject
 from Prefetcher import BasePrefetcher
