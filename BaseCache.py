@@ -11,6 +11,7 @@ class BaseCache(MemObject):
     hit_latency = Param.Cycles("The hit latency for this cache")
     response_latency = Param.Cycles(
             "Additional cache latency for the return path to core on a miss");
+    access_latency = Param.Cycles("Time it takes for the CPU to access the cache/Memory")
     max_miss_count = Param.Counter(0,
         "number of misses to handle before calling exit")
     mshrs = Param.Int("number of MSHRs (max outstanding requests)")
