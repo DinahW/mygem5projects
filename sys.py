@@ -14,6 +14,9 @@ system.clk_domain.voltage_domain = VoltageDomain()
 # Set up the CPU
 system.cpu = X86TimingSimpleCPU() 
 
+#Create a memory object
+system.memobj = SimpleMemobj()
+
 # Setup the caches
 
 # L1 caches
