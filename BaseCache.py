@@ -19,13 +19,13 @@ class BaseCache(MemObject):
     two_queue = Param.Bool(False,
         "whether the lifo should have two queue replacement")
     write_buffers = Param.Int(8, "number of write buffers")
-    prefetch_on_access = Param.Bool(False,
+    prefetch_on_access = Param.Bool(True,
         "notify the hardware prefetcher on every access (not just misses)")
     prefetcher = Param.BasePrefetcher(NULL,"Prefetcher attached to cache")
     cpu_side = SlavePort("Port on side closer to CPU")
     mem_side = MasterPort("Port on side closer to MEM")
     addr_ranges = VectorParam.AddrRange([AllMemory], "The address range for the CPU-side port")
     system = Param.System(Parent.any, "System we belong to")
-    sequential_access = Param.Bool(False,
+    sequential_access = Param.Bool(True,
         "Whether to access tags and data sequentially")
     tags = Param.BaseTags(LRU(), "Tag Store for LRU caches")
