@@ -2,8 +2,7 @@ from m5.objects import BaseCache
 
 class L1Cache(BaseCache):
         assoc = 2
-        access_latency = 1
-        response_latency = 2
+        response_latency = 4
           
        def connectCPU(self,cpu):
             raise NotImplementedError
@@ -24,10 +23,8 @@ class L1DCache(L1Cache):
 class L2Cache(BaseCache):
         size = '256kB'
         assoc = 8
-        access_latency = 4
-        response_latency = 20
+        response_latency = 16
      
-
         def connectCPUSideBus(self,bus):
             self.cpu_side = bus.master
 
