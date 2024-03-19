@@ -20,18 +20,19 @@ system.cpu.dcache = L1Cache()
 system.cpu.icache.response_latency = 2
 system.cpu.dcache.response_latency = 2
 
-# L2 cache configuration
-system.l2_cache = L2Cache()
-
-# Main memory configuration
-system.mem_ranges = [AddrRange('512MB')]
-
 # Connect L1 caches directly to L2 cache
 system.cpu.icache.connectMemSide(system.l2_cache)
 system.cpu.dcache.connectMemSide(system.l2_cache)
 
+# L2 cache configuration
+system.l2_cache = L2Cache()
+
 # Setting data access latency for L2 cache
-system.cpu.L2cache.response_latency = 4
+system.cpu.L2cache.response_latency = 8
+
+# Main memory configuration
+system.mem_ranges = [AddrRange('512MB')]
+system_mem_ctrl_response_latency= 16
 
 # Connect L2 cache directly to main memory
 system.l2_cache.connectMemSide(system.mem_ctrl)
