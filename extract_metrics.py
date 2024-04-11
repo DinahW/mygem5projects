@@ -3,7 +3,7 @@ from m5.objects import *
 
 def extract_metrics(stats_file):
     # Load statistics from the stats file
-    stats = m5.stats.Stats.parse(stats_file)
+    stats = m5.stats.stats.parse(stats_file)
     
     # Extract  metrics
     sim_seconds = stats.system.simSeconds.value
@@ -20,20 +20,12 @@ def extract_metrics(stats_file):
     clk_domain_clock = stats.system.clk_domain.clock.value
     voltage_domain_voltage = stats.system.clk_domain.voltage_domain.voltage.value
     
-    # Print the extracted metrics
-    print("simSeconds: ", sim_seconds)
-    print("simTicks: ", sim_ticks)
-    print("finalTick: ", final_tick)
-    print("simFreq: ", sim_freq)
-    print("hostSeconds: ", host_seconds)
-    print("HostTickRate: ", host_tick_rate)
-    print("hostMemory: ", host_memory)
-    print("simInsts: ", sim_insts)
-    print("simOps: ", sim_ops)
-    print("hostInstRate: ", host_inst_rate)
-    print("hostOpRate: ", host_op_rate)
-    print("system.clk_domain.clock: ", clk_domain_clock)
-    print("system.clk_domain.voltage_domain.voltage: ", voltage_domain_voltage)
+with open(results, 'w') as f:
+        f.write("simSeconds: {}\n".format(sim_seconds))
+        f.write("simTicks: {}\n".format(sim_ticks))
+        f.write("finalTick:{}\n".format(final_tick))
+        f.write("sim_freq:{}\n".format(final_tick))
+
 
 if __name__ == "__main__":
  
