@@ -15,7 +15,6 @@ PhotonicAccelObject::PhotonicAccelObject(const PhotonicAccelObjectParams &params
     duration_of_event2(0),
     duration_of_event3(0),
 
-    bandwidth(params.bandwidth),
     delays(params.delays),
     responseTime(params.response_time),
     powerConsumption(params.power_consumption),
